@@ -36,7 +36,7 @@ export default function AddProductPage() {
 
     setStatus("saving");
 
-    const res = await fetch("/api", {
+    const res = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, info, images }),
