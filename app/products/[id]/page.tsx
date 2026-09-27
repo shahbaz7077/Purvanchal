@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getProductById } from "../../../lib/products";
 import { highQualityImage } from "../../../lib/cloudinary-url";
 
-{/* <Image src={highQualityImage(product.images[0])} ... /> */}
+// {/* <Image src={highQualityImage(product.images[0])} ... /> */}
 
 export default async function ProductDetailPage({
   params,
