@@ -7,8 +7,8 @@ import { company } from "../../data/company";
 type NavLink = { label: string; href: string };
 
 const navLinks: NavLink[] = [
-  { label: "Home", href: "#top" },
-  { label: "Products", href: "#products" },
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
   { label: "Why us", href: "#why-us" },
   { label: "Contact", href: "#contact" },
 ];
