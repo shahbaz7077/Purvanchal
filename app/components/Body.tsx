@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ScrollNut from "./ScrollNut";
 
 import { company, heroTags, whyChooseUs } from "../../data/company";
 
@@ -74,22 +75,6 @@ function Hero() {
             {company.name} — your trusted partner for rolling mill works, oil
             mill works, and precision-manufactured industrial components.
           </p>
-
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/products"
-              className="rounded-[10px] bg-white px-6 py-2.5 text-sm font-bold text-blue-900 shadow-lg shadow-blue-950/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-            >
-              View products
-            </Link>
-
-            <Link
-              href="#contact"
-              className="rounded-[10px] border-2 border-white/70 bg-blue-950/40 px-6 py-2.5 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-blue-900/60"
-            >
-              Contact us
-            </Link>
-          </div>
         </div>
 
         <div className="group relative z-10 flex aspect-[4/3] items-center justify-center rounded-2xl bg-white p-4 shadow-2xl shadow-blue-950/50 ring-4 ring-sky-400/40 transition-transform duration-500 hover:scale-[1.02] sm:p-6">
@@ -106,6 +91,31 @@ function Hero() {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-b from-transparent to-blue-950/60" />
+    </section>
+  );
+}
+
+/* ---------- 1b. Hero CTA (white strip below hero) ---------- */
+function HeroCTA() {
+  return (
+    <section className="bg-white">
+      <div className="mx-auto max-w-[1100px] px-6">
+        <div className="flex flex-col items-center gap-4 border-b border-slate-200 py-8 sm:flex-row sm:justify-center sm:gap-4">
+          <Link
+            href="/products"
+            className="w-full rounded-[10px] bg-blue-700 px-8 py-3 text-center text-sm font-bold text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-xl sm:w-auto"
+          >
+            View products
+          </Link>
+
+          <Link
+            href="#contact"
+            className="w-full rounded-[10px] border-2 border-blue-300 bg-white px-8 py-3 text-center text-sm font-bold text-blue-800 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500 hover:bg-blue-50 sm:w-auto"
+          >
+            Contact us
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }
@@ -211,8 +221,10 @@ export default function Body() {
   return (
     <main className="w-full overflow-x-hidden bg-white">
       <Hero />
+      <HeroCTA />
       <WhyChooseUs />
       <ContactCTA />
+         <ScrollNut />
     </main>
   );
 }

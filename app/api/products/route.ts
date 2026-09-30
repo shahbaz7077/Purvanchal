@@ -22,7 +22,11 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, info, images } = body as { name?: string; info?: string; images?: string[] };
+    const { name, info, images } = body as {
+      name?: string;
+      info?: string;
+      images?: string[];
+    };
 
     if (!name || !info || !images || images.length === 0) {
       return NextResponse.json(
@@ -31,7 +35,10 @@ export async function POST(request: NextRequest) {
       );
     }
     if (images.length > 4) {
-      return NextResponse.json({ error: "Maximum 4 images allowed" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Maximum 4 images allowed" },
+        { status: 400 }
+      );
     }
 
     await connectDB();
@@ -43,6 +50,47 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// PUT /api/products?id=xxxxx -> update name and info
+export async function PUT(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json(
+        { error: "Product id is required" },
+        { status: 400 }
+      );
+    }
+
+    const body = await request.json();
+    const { name, info } = body as { name?: string; info?: string };
+
+    if (!name || !info) {
+      return NextResponse.json(
+        { error: "name and info are required" },
+        { status: 400 }
+      );
+    }
+
+    await connectDB();
+    const updated = await ProductModel.findByIdAndUpdate(
+      id,
+      { name, info },
+      { new: true, runValidators: true }
+    );
+
+    if (!updated) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(updated);
+  } catch (err) {
+    console.error("PUT /api/products failed:", err);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+}
+
 // DELETE /api/products?id=xxxxx -> delete a product
 export async function DELETE(request: NextRequest) {
   try {
@@ -50,7 +98,10 @@ export async function DELETE(request: NextRequest) {
     const id = searchParams.get("id");
 
     if (!id) {
-      return NextResponse.json({ error: "Product id is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Product id is required" },
+        { status: 400 }
+      );
     }
 
     await connectDB();
