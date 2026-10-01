@@ -1,15 +1,16 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifyAdminToken } from "../../lib/auth";
-import AddProductForm from "./AddProductForm";
+import AdminLoginForm from "./AdminLoginForm";
 
-export default async function AddProductPage() {
+export default async function AdminPage() {
   const cookieStore = await cookies();
   const token = cookieStore.get("admin_token")?.value;
 
-  if (!verifyAdminToken(token)) {
-    redirect("/admin");
+  // Pehle se login hai to seedha dashboard
+  if (verifyAdminToken(token)) {
+    redirect("/admin/dashboard");
   }
 
-  return <AddProductForm />;
+  return <AdminLoginForm />;
 }
