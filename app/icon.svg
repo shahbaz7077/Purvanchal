@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="gf-steel" cx="50%" cy="50%" r="50%" fx="35%" fy="35%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="20%" stop-color="#e8ebed"/>
+      <stop offset="45%" stop-color="#939ba0"/>
+      <stop offset="70%" stop-color="#cfd5d9"/>
+      <stop offset="100%" stop-color="#4d5357"/>
+    </radialGradient>
+
+    <linearGradient id="gf-bevel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="15%" stop-color="#dce1e5"/>
+      <stop offset="85%" stop-color="#767d82"/>
+      <stop offset="100%" stop-color="#383c3e"/>
+    </linearGradient>
+
+    <linearGradient id="gf-recess" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141517"/>
+      <stop offset="50%" stop-color="#2a2e31"/>
+      <stop offset="100%" stop-color="#0a0a0b"/>
+    </linearGradient>
+
+    <filter id="gf-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+
+    <path id="gf-tooth" d="M -18,-150 L -14,-193 C -14,-196 -11,-199 -8,-199 L 8,-199 C 11,-199 14,-196 14,-193 L 18,-150 Z"/>
+    <path id="gf-spline" d="M -7,-70 L -7,-46 C -7,-44 -5,-43 -3,-43 L 3,-43 C 5,-43 7,-44 7,-46 L 7,-70 Z"/>
+  </defs>
+
+  <g filter="url(#gf-shadow)" transform="translate(250,250)">
+    <g fill="url(#gf-steel)">
+      <circle cx="0" cy="0" r="152"/>
+      <use href="#gf-tooth" transform="rotate(0)"/>
+      <use href="#gf-tooth" transform="rotate(20)"/>
+      <use href="#gf-tooth" transform="rotate(40)"/>
+      <use href="#gf-tooth" transform="rotate(60)"/>
+      <use href="#gf-tooth" transform="rotate(80)"/>
+      <use href="#gf-tooth" transform="rotate(100)"/>
+      <use href="#gf-tooth" transform="rotate(120)"/>
+      <use href="#gf-tooth" transform="rotate(140)"/>
+      <use href="#gf-tooth" transform="rotate(160)"/>
+      <use href="#gf-tooth" transform="rotate(180)"/>
+      <use href="#gf-tooth" transform="rotate(200)"/>
+      <use href="#gf-tooth" transform="rotate(220)"/>
+      <use href="#gf-tooth" transform="rotate(240)"/>
+      <use href="#gf-tooth" transform="rotate(260)"/>
+      <use href="#gf-tooth" transform="rotate(280)"/>
+      <use href="#gf-tooth" transform="rotate(300)"/>
+      <use href="#gf-tooth" transform="rotate(320)"/>
+      <use href="#gf-tooth" transform="rotate(340)"/>
+    </g>
+
+    <circle cx="0" cy="0" r="128" fill="none" stroke="url(#gf-recess)" stroke-width="10" opacity="0.85"/>
+
+    <circle cx="0" cy="0" r="108" fill="url(#gf-bevel)"/>
+    <circle cx="0" cy="0" r="100" fill="url(#gf-steel)"/>
+
+    <circle cx="0" cy="0" r="82" fill="none" stroke="#2f3336" stroke-width="2" opacity="0.5"/>
+
+    <circle cx="0" cy="0" r="74" fill="url(#gf-recess)"/>
+
+    <g fill="url(#gf-steel)">
+      <use href="#gf-spline" transform="rotate(0)"/>
+      <use href="#gf-spline" transform="rotate(22.5)"/>
+      <use href="#gf-spline" transform="rotate(45)"/>
+      <use href="#gf-spline" transform="rotate(67.5)"/>
+      <use href="#gf-spline" transform="rotate(90)"/>
+      <use href="#gf-spline" transform="rotate(112.5)"/>
+      <use href="#gf-spline" transform="rotate(135)"/>
+      <use href="#gf-spline" transform="rotate(157.5)"/>
+      <use href="#gf-spline" transform="rotate(180)"/>
+      <use href="#gf-spline" transform="rotate(202.5)"/>
+      <use href="#gf-spline" transform="rotate(225)"/>
+      <use href="#gf-spline" transform="rotate(247.5)"/>
+      <use href="#gf-spline" transform="rotate(270)"/>
+      <use href="#gf-spline" transform="rotate(292.5)"/>
+      <use href="#gf-spline" transform="rotate(315)"/>
+      <use href="#gf-spline" transform="rotate(337.5)"/>
+    </g>
+
+    <circle cx="0" cy="0" r="38" fill="#000000"/>
+    <circle cx="0" cy="0" r="38" fill="none" stroke="url(#gf-bevel)" stroke-width="2" opacity="0.6"/>
+
+    <path d="M -100,-146 A 150,150 0 0 1 100,-146" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.5" fill="none"/>
+  </g>
+</svg>

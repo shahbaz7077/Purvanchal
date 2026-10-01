@@ -1,1 +1,47 @@
-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+<svg xmlns="http://w3.org" viewBox="0 0 500 500">
+  <defs>
+    <path id="t1" d="M-18-205l-8-37c0-4 4-8 9-8h34c5 0 9 4 9 8l-8 37z"/>
+    <path id="a1" d="M-8-160l-6-30c-1-3 2-6 6-6h16c4 0 7 3 6 6l-6 30c-2 6-14 6-16 0z" fill="#fff"/>
+    <path id="t2" d="M-11-105l-3-17c-1-2 1-4 4-4h20c3 0 5 2 4 4l-3 17z"/>
+    <g id="p1">
+      <circle cx="0" cy="-45" r="14"/>
+      <circle cx="0" cy="-45" r="7" fill="#fff"/>
+    </g>
+  </defs>
+  <g transform="translate(250,250)">
+    <circle cx="0" cy="0" r="210"/>
+    <g id="g1">
+      <g id="g2">
+        <use href="#t1"/><use href="#t1" transform="rotate(20)"/><use href="#t1" transform="rotate(40)"/>
+      </g>
+      <use href="#g2" transform="rotate(60)"/><use href="#g2" transform="rotate(120)"/>
+    </g>
+    <use href="#g1" transform="rotate(180)"/>
+    <circle cx="0" cy="0" r="150" fill="#fff"/>
+    <g id="g3">
+      <g id="g4">
+        <use href="#a1" transform="rotate(10)"/><use href="#a1" transform="rotate(30)"/><use href="#a1" transform="rotate(50)"/>
+      </g>
+      <use href="#g4" transform="rotate(60)"/><use href="#g4" transform="rotate(120)"/>
+    </g>
+    <use href="#g3" transform="rotate(180)"/>
+    <circle cx="0" cy="0" r="110"/>
+    <g id="g5">
+      <g id="g6">
+        <use href="#t2" transform="rotate(10)"/><use href="#t2" transform="rotate(30)"/><use href="#t2" transform="rotate(50)"/>
+      </g>
+      <use href="#g6" transform="rotate(60)"/><use href="#g6" transform="rotate(120)"/>
+    </g>
+    <use href="#g5" transform="rotate(180)"/>
+    <circle cx="0" cy="0" r="82" fill="#fff"/>
+    <circle cx="0" cy="0" r="70"/>
+    <circle cx="0" cy="0" r="45" stroke="#fff" stroke-width="3" fill="none"/>
+    <g id="g7">
+      <use href="#p1"/><use href="#p1" transform="rotate(60)"/><use href="#p1" transform="rotate(120)"/>
+    </g>
+    <use href="#g7" transform="rotate(180)"/>
+    <circle cx="0" cy="0" r="22" fill="#fff"/>
+    <circle cx="0" cy="0" r="14"/>
+    <circle cx="0" cy="0" r="6" fill="#fff"/>
+  </g>
+</svg>
