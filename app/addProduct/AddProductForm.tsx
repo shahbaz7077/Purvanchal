@@ -1,19 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import {
   CldUploadWidget,
   type CloudinaryUploadWidgetResults,
 } from "next-cloudinary";
 
 export default function AddProductForm() {
-  const router = useRouter();
+  // const router = useRouter();
 
   const [name, setName] = useState<string>("");
   const [info, setInfo] = useState<string>("");
   const [images, setImages] = useState<string[]>([]);
-  const [status, setStatus] = useState<"idle" | "saving" | "error">("idle");
+ const [status, setStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
   const [error, setError] = useState<string>("");
 
   const handleUpload = (result: CloudinaryUploadWidgetResults) => {

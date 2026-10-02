@@ -45,30 +45,22 @@ export default function ProductsPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#0a0d14] text-[#f1f5f9]">
-      {/* 1. Fine Architectural Matrix Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#161f30_1px,transparent_1px),linear-gradient(to_bottom,#161f30_1px,transparent_1px)] bg-[size:32px_32px] opacity-25 pointer-events-none" />
-
-      {/* 2. Soft Ambient Radial Steel Spotlight Blur */}
       <div className="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-slate-500/5 blur-[120px] pointer-events-none" />
-
-      {/* 3. Deep Core Accent Shadow Spotlight */}
       <div className="absolute top-[40%] -right-[20%] w-[800px] h-[800px] rounded-full bg-blue-500/[0.02] blur-[160px] pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[1200px] px-4 py-20 sm:px-6">
-        {/* Header Section */}
+      <div className="relative z-10 mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-20">
         <div className="relative text-center">
-          <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
+          <h1 className="text-3xl font-black tracking-tight text-white sm:text-6xl">
             The Standard of Quality
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-300">
+          <p className="mx-auto mt-5 max-w-xl text-sm font-medium leading-relaxed text-slate-300 sm:text-base">
             True luxury lies in the details. Explore a collection meticulously
             engineered to look flawless and perform perfectly.
           </p>
         </div>
 
-        {/* Search Input Bar */}
-        <div className="relative mx-auto mt-12 max-w-md">
+        <div className="relative mx-auto mt-10 max-w-md sm:mt-12">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
             <svg
               className="h-5 w-5 text-slate-400"
@@ -93,7 +85,6 @@ export default function ProductsPage() {
           />
         </div>
 
-        {/* Content Renderers */}
         {loading ? (
           <div className="mt-24 flex flex-col items-center justify-center gap-3">
             <div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-600 border-t-blue-400" />
@@ -123,16 +114,16 @@ export default function ProductsPage() {
             </p>
           </div>
         ) : (
-          /* Product Cards */
-          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          /* Mobile par ab 2 columns, tablet se 3 columns tak */
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-8 lg:grid-cols-3">
             {products.map((product) => (
               <Link
                 key={product.id}
                 href={`/products/${product.id}`}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/30 hover:bg-white/[0.04] hover:shadow-2xl hover:shadow-blue-950/40"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-400/30 hover:bg-white/[0.04] hover:shadow-2xl hover:shadow-blue-950/40 sm:rounded-3xl"
               >
-                {/* Image Container */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900/60">
+                {/* Metal products ke liye behtar background — brushed-steel jaisa gradient */}
+                <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-slate-700 via-slate-900 to-black sm:aspect-[4/3]">
                   {product.images &&
                   product.images[0] &&
                   product.images[0] !== "" ? (
@@ -140,8 +131,8 @@ export default function ProductsPage() {
                       src={product.images[0]}
                       alt={product.name}
                       fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 50vw"
+                      className="object-contain p-3 transition-transform duration-700 ease-out group-hover:scale-105 sm:object-cover sm:p-0"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-slate-800/60 text-slate-500">
@@ -160,20 +151,19 @@ export default function ProductsPage() {
                       </svg>
                     </div>
                   )}
-                  <div className="absolute inset-0  from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
 
-                {/* Info Content Block */}
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-base font-black capitalize text-white transition-colors group-hover:text-blue-200">
+                <div className="flex flex-1 flex-col p-3 sm:p-6">
+                  <div className="flex items-start justify-between gap-2 sm:gap-3">
+                    <h3 className="text-xs font-black capitalize text-white transition-colors group-hover:text-blue-200 sm:text-base">
                       {product.name}
                     </h3>
-                    <div className="rounded-xl bg-white/5 px-3 py-1 text-xs font-bold text-slate-200 border border-white/10 shrink-0 group-hover:bg-blue-500 group-hover:text-white group-hover:border-blue-400 transition-colors duration-300">
+                    <div className="hidden shrink-0 rounded-xl border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold text-slate-200 transition-colors duration-300 group-hover:border-blue-400 group-hover:bg-blue-500 group-hover:text-white sm:block">
                       Explore
                     </div>
                   </div>
-                  <p className="mt-2.5 line-clamp-2 text-xs font-medium leading-relaxed text-slate-400 capitalize">
+                  <p className="mt-1.5 line-clamp-2 text-[11px] font-medium capitalize leading-relaxed text-slate-400 sm:mt-2.5 sm:text-xs">
                     {product.info}
                   </p>
                 </div>
@@ -182,14 +172,13 @@ export default function ProductsPage() {
           </div>
         )}
 
-        {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-20 flex items-center justify-center gap-4">
+          <div className="mt-16 flex items-center justify-center gap-4 sm:mt-20">
             <button
               type="button"
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-2.5 text-xs font-bold text-slate-300 transition-all duration-300 hover:border-blue-400/40 hover:text-white disabled:pointer-events-none disabled:opacity-20 shadow-sm"
+              className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-2.5 text-xs font-bold text-slate-300 shadow-sm transition-all duration-300 hover:border-blue-400/40 hover:text-white disabled:pointer-events-none disabled:opacity-20"
             >
               <svg
                 className="h-4 w-4"
@@ -202,14 +191,14 @@ export default function ProductsPage() {
               </svg>
               Prev
             </button>
-            <span className="text-xs font-extrabold text-slate-500 tracking-wider">
+            <span className="text-xs font-extrabold tracking-wider text-slate-500">
               PAGE <span className="text-white">{page}</span> OF {totalPages}
             </span>
             <button
               type="button"
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-2.5 text-xs font-bold text-slate-300 transition-all duration-300 hover:border-blue-400/40 hover:text-white disabled:pointer-events-none disabled:opacity-20 shadow-sm"
+              className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-2.5 text-xs font-bold text-slate-300 shadow-sm transition-all duration-300 hover:border-blue-400/40 hover:text-white disabled:pointer-events-none disabled:opacity-20"
             >
               Next
               <svg
