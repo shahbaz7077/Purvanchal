@@ -29,21 +29,17 @@ export default function AddProductForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError("");
+  e.preventDefault();
+  setError("");
 
-    if (!name.trim() || !info.trim()) {
-      setError("Name and description are required.");
-      return;
-    }
+  if (images.length === 0) {
+    setError("Add at least 1 image");
+    return;
+  }
 
-    if (images.length === 0) {
-      setError("Add at least 1 image");
-      return;
-    }
+  setStatus("saving");
 
-    setStatus("saving");
-
+  try {
     const res = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -57,8 +53,20 @@ export default function AddProductForm() {
       return;
     }
 
-    router.push("/");
-  };
+    // Home page par bhejne ki jagah — form reset karo, yahin raho
+    setName("");
+    setInfo("");
+    setImages([]);
+    setStatus("success");
+
+    // 3 second baad success message khud gayab ho jaye
+    setTimeout(() => setStatus("idle"), 3000);
+  } catch (err) {
+    console.error(err);
+    setError("Could not reach the server");
+    setStatus("error");
+  }
+};
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#0a0d14] text-[#f1f5f9]">
