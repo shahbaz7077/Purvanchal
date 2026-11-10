@@ -1,5 +1,22 @@
 // import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://purvanchal-1.vercel.app"),
+  title: {
+    default: "Purvanchal | B2B Product Catalog",
+    template: "%s | Purvanchal",
+  },
+  description: "Browse products from local sellers in one B2B catalog.",
+  openGraph: {
+    title: "Purvanchal",
+    description: "B2B product catalog for the local market.",
+    url: "/",
+    siteName: "Purvanchal",
+    type: "website",
+  },
+};
 // import "./globals.css";
 
 const geistSans = Geist({
@@ -11,13 +28,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-import type { Metadata } from "next";
-import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Purvanchal Engineering",
-  description: "Precision engineered industrial components",
-};
 
 export default function RootLayout({
   children,
